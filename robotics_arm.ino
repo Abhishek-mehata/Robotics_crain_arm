@@ -72,8 +72,9 @@ void container_in_bot()
 void loop() {
   // put your main code here, to run repeatedly:
   ldr_sensorvalue = analogRead(ldr_pin); // Read analog value from LDR
-  ldr_binaryvalue = ((ldr_binaryvalue >ldr_midvalue) ? 1 : 0); // Convert to digital
+  ldr_binaryvalue = ((ldr_sensorvalue >ldr_midvalue) ? 1 : 0); // Convert to digital
   Serial.println(ldr_binaryvalue); // Send digital value over serial
+  Serial.println(ldr_sensorvalue);
   container_in_farm();
   container_in_air();
   container_in_bot();
